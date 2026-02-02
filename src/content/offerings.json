@@ -1,0 +1,36 @@
+{
+  "offerings": [
+    {
+      "id": "1",
+      "title": "Career Strategy Sessions",
+      "for": "Early to mid-career professionals feeling stuck or uncertain about their next move",
+      "outcome": "Gain clarity on your career direction, identify skill gaps, and create an actionable 90-day roadmap",
+      "ctaLink": "https://calendly.com/mkalicharan/career-strategy",
+      "ctaText": "Book Session"
+    },
+    {
+      "id": "2",
+      "title": "Technical Leadership Coaching",
+      "for": "Senior engineers transitioning to leadership roles or new managers seeking guidance",
+      "outcome": "Develop leadership mindset, learn to balance technical and people responsibilities, and build high-performing teams",
+      "ctaLink": "https://calendly.com/mkalicharan/leadership-coaching",
+      "ctaText": "Start Coaching"
+    },
+    {
+      "id": "3",
+      "title": "Product Building Mentorship",
+      "for": "Indie hackers and solo founders working on their first or next product",
+      "outcome": "Get feedback on your product ideas, prioritize features, and learn strategies to build and launch efficiently",
+      "ctaLink": "https://calendly.com/mkalicharan/product-mentorship",
+      "ctaText": "Get Feedback"
+    },
+    {
+      "id": "4",
+      "title": "AI Integration Consulting",
+      "for": "Teams and individuals looking to leverage AI tools in their workflow",
+      "outcome": "Identify AI opportunities in your work, implement practical solutions, and build sustainable AI-augmented processes",
+      "ctaLink": "https://calendly.com/mkalicharan/ai-consulting",
+      "ctaText": "Schedule Call"
+    }
+  ]
+}

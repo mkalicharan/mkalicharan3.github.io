@@ -1,0 +1,40 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "title": "Accelerate Your Career Growth",
+      "description": "A comprehensive guide to navigating career transitions, making strategic moves, and building a fulfilling tech career. Learn frameworks used by senior engineers and leaders.",
+      "status": "live",
+      "format": "async",
+      "ctaText": "Enroll Now",
+      "ctaLink": "#enroll"
+    },
+    {
+      "id": "2",
+      "title": "Building Products That Matter",
+      "description": "Master the art of building products people actually want. From idea validation to launch, learn the complete process of creating successful products as a solo builder.",
+      "status": "upcoming",
+      "format": "cohort",
+      "ctaText": "Join Waitlist",
+      "ctaLink": "#waitlist"
+    },
+    {
+      "id": "3",
+      "title": "AI-Powered Development Workflow",
+      "description": "Learn to integrate AI tools into your development workflow effectively. Boost productivity while maintaining code quality and architectural integrity.",
+      "status": "live",
+      "format": "1:1",
+      "ctaText": "Learn More",
+      "ctaLink": "#learn-more"
+    },
+    {
+      "id": "4",
+      "title": "From Engineer to Technical Leader",
+      "description": "Transition smoothly from individual contributor to technical leadership. Learn the skills that matter: decision-making, team building, and technical strategy.",
+      "status": "upcoming",
+      "format": "cohort",
+      "ctaText": "Join Waitlist",
+      "ctaLink": "#waitlist"
+    }
+  ]
+}

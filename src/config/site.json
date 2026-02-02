@@ -1,0 +1,29 @@
+{
+  "name": "Kalicharan Mahasivabhattu",
+  "domain": "mkalicharan.com",
+  "tagline": "Career Guidance • AI-Assisted Learning • Solo Building",
+  "description": "Professional mentor, course creator, and technologist helping individuals navigate their career paths with clarity and purpose.",
+  "primaryCTA": {
+    "text": "Book a 1:1 Session",
+    "link": "https://calendly.com/mkalicharan"
+  },
+  "socialLinks": {
+    "email": "hello@mkalicharan.com",
+    "linkedin": "https://linkedin.com/in/mkalicharan",
+    "github": "https://github.com/mkalicharan",
+    "twitter": "https://twitter.com/mkalicharan"
+  },
+  "sections": {
+    "hero": true,
+    "about": true,
+    "offerings": true,
+    "courses": true,
+    "mentorship": true,
+    "writing": true,
+    "contact": true
+  },
+  "seo": {
+    "title": "Kalicharan Mahasivabhattu | Career Mentor & Technologist",
+    "metaDescription": "Professional mentor and technologist offering career guidance, AI-assisted learning, and support for solo builders."
+  }
+}
