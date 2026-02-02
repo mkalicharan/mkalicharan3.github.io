@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 3000 2>&1 | tee dev.log",
-    "build": "next build",
+    "build": "next build && next export -o out",
     "start": "next start",
-    "export": "next build",
-    "deploy": "next build && touch out/.nojekyll && echo 'Build complete'",
+    "export": "next export -o out",
+    "deploy": "next build && next export -o out && touch out/.nojekyll && echo 'Build complete'",
     "lint": "eslint .",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",
