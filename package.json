@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "export": "next build",
+    "deploy": "next build && touch out/.nojekyll && echo 'Build complete'",
     "lint": "eslint .",
     "db:push": "prisma db push",
     "db:generate": "prisma generate",

@@ -75,7 +75,7 @@ bun run build
 npm run build
 ```
 
-This creates a `out/` directory with static HTML, CSS, and JavaScript files ready for deployment.
+This creates an `out/` directory with static HTML, CSS, and JavaScript files ready for deployment.
 
 ## 📝 Content Management
 
@@ -165,110 +165,116 @@ excerpt: "Short description"
 Your markdown content here...
 ```
 
-**Important**: Ensure each post has a unique `slug` in the frontmatter.
+**Important**: Ensure each post has a unique `slug` in frontmatter.
 
 ## 🚀 Deploying to GitHub Pages
 
-### Option 1: GitHub Actions (Recommended)
+### Prerequisites
 
-1. **Create `.github/workflows/deploy.yml`**:
-   ```yaml
-   name: Deploy to GitHub Pages
+1. Repository on GitHub
+2. GitHub Pages enabled in repository settings
+3. Custom domain configured (if using mkalicharan.com)
 
-   on:
-     push:
-       branches: [main]
-     workflow_dispatch:
+### Setup Steps
 
-   permissions:
-     contents: read
-     pages: write
-     id-token: write
+#### 1. Configure GitHub Pages
 
-   concurrency:
-     group: "pages"
-     cancel-in-progress: false
+1. Go to your repository on GitHub
+2. Click **Settings** → **Pages**
+3. Under **Source**, select **GitHub Actions**
+4. Click **Save**
 
-   jobs:
-     deploy:
-       runs-on: ubuntu-latest
-       steps:
-         - name: Checkout
-           uses: actions/checkout@v4
+#### 2. Push to GitHub
 
-         - name: Setup Bun
-           uses: oven-sh/setup-bun@v2
+The `.github/workflows/deploy.yml` file is already set up and will automatically:
+- Build the site using Bun
+- Create static export in `out/` directory
+- Upload to GitHub Pages
+- Deploy to `mkalicharan.com`
 
-         - name: Install dependencies
-           run: bun install
+```bash
+# Make your changes
+git add .
+git commit -m "Update content"
+git push origin main
+```
 
-         - name: Build
-           run: bun run build
+#### 3. Automatic Deployment
 
-         - name: Upload artifact
-           uses: actions/upload-pages-artifact@v3
-           with:
-             path: ./out
+- **GitHub Actions** will run automatically on push to `main` branch
+- Build and deploy takes ~2-5 minutes
+- Check **Actions** tab in GitHub to see deployment status
+- Visit your site: https://mkalicharan.com
 
-         - name: Deploy to GitHub Pages
-           id: deployment
-           uses: actions/deploy-pages@v4
-   ```
+### Troubleshooting
 
-2. **Configure GitHub Pages**:
-   - Go to Repository Settings → Pages
-   - Source: GitHub Actions
-   - Save
+#### "No index file" Error
 
-3. **Push to trigger deployment**:
-   ```bash
-   git add .
-   git commit -m "Deploy site"
-   git push origin main
-   ```
+If GitHub Pages shows "no index file":
 
-### Option 2: Manual Deployment
-
-1. **Build the site**:
+1. Check the **Actions** tab - see if workflow failed
+2. Verify `.nojekyll` file exists in repository
+3. Check that `out/` directory contains `index.html`
+4. Try running the build locally:
    ```bash
    bun run build
+   ls -la out/
    ```
+5. Ensure `.nojekyll` is committed (it should be in your repo)
 
-2. **Push to `gh-pages` branch**:
-   ```bash
-   git subtree push --prefix out origin gh-pages
-   ```
+#### Domain Not Working
 
-3. **Configure GitHub Pages**:
-   - Go to Repository Settings → Pages
-   - Source: Deploy from a branch
-   - Branch: `gh-pages` / `root`
-   - Save
+For custom domain `mkalicharan.com`:
+
+1. **CNAME file**: Located at `public/CNAME` (already created)
+2. **DNS Settings**: Add CNAME record:
+   - Type: CNAME
+   - Name: @ (or your subdomain)
+   - Value: `your-username.github.io`
+3. **Wait**: DNS propagation can take 24-48 hours
+4. **GitHub Pages Settings**: Ensure custom domain is set correctly
+
+### Manual Deployment (Optional)
+
+If you prefer manual deployment:
+
+```bash
+# 1. Build the site
+bun run build
+
+# 2. The out/ directory now contains index.html and all static files
+
+# 3. Copy out/ directory contents to your server or host
+```
 
 ### Custom Domain Setup
 
-1. **Create `CNAME` file** in `public/` directory:
+1. **CNAME file**: Already created at `public/CNAME` with:
    ```
    mkalicharan.com
    ```
 
-2. **Configure DNS**:
-   - Add CNAME record pointing to `your-username.github.io`
-   - Or add A records for GitHub Pages IP addresses
+2. **DNS Configuration** (at your domain registrar):
+   - Add CNAME record: `mkalicharan.com` → `your-username.github.io`
+   - Or add A records to GitHub Pages IPs:
+     - `185.199.108.153`
+     - `185.199.109.153`
+     - `185.199.110.153`
+     - `185.199.111.153`
 
-3. **Wait for propagation** (can take up to 24 hours)
+3. **Verify**: Visit GitHub Pages settings to confirm domain is listed
 
 ## 🎨 Customization
 
 ### Colors
 
-Edit `src/app/globals.css` to customize the color scheme. Current theme uses Tailwind CSS default colors (slate palette).
+Edit `src/app/globals.css` to customize color scheme. Current theme uses Tailwind CSS default colors (slate palette).
 
 ### Typography
 
 The site uses Inter font. To change fonts:
 1. Update `src/app/layout.tsx` to import a different Google Font
-2. Apply the font variable to the body
+2. Apply the font variable to body
 
 ### Sections
 
@@ -321,7 +327,7 @@ If content changes aren't reflected:
 
 1. Check GitHub Actions logs for errors
 2. Ensure repository permissions are correct
-3. Verify the `out/` directory exists and contains files
+3. Verify `out/` directory exists and contains files
 4. Check Pages configuration in repository settings
 
 ## 📄 License
